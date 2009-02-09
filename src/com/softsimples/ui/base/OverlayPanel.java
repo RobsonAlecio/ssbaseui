@@ -215,14 +215,15 @@ public abstract class OverlayPanel extends JXLayer<JComponent> {
             graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             Composite composite = graphics2D.getComposite();
             graphics2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.6f));
-            graphics2D.setColor(Color.WHITE);
+            graphics2D.setColor(Color.DARK_GRAY);
             Stroke stroke = graphics2D.getStroke();
             graphics2D.setStroke(new BasicStroke(10));
             graphics2D.drawRoundRect(8, 8, rectangleLayer.width - 17, rectangleLayer.height - 17, 40, 40);
-            graphics2D.setComposite(composite);
+            graphics2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f));
             graphics2D.setStroke(stroke);
-            graphics2D.setColor(Color.GRAY);
+            graphics2D.setColor(Color.BLACK);
             graphics2D.fillRoundRect(10, 10, rectangleLayer.width - 20, rectangleLayer.height - 20, 40, 40);
+            graphics2D.setComposite(composite);
             super.paint(graphics);
         }
     }
